@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% stylesheets filter="scssphp,cssrewrite" output="bundles/app/published/css/app.css" "bundles/app/css/sass/main.scss" %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <script type="text/javascript" src="{{ asset('bundles/app/js/jquery-3.1.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/app/js/jquery.dataTables.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/app/js/dataTables.select.min.js') }}"></script>
+
+
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        {% javascripts %}{% endjavascripts %}
+
+    </body>
+</html>

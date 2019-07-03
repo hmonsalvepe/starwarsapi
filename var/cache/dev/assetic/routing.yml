@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: /Applications/AMPPS/www/opinno_swapi/app/config/routing_dev.yml

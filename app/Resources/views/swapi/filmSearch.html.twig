@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+            <table id="tableFilms"  class="table table-bordered" style="width: 100%; word-wrap:break-word; table-layout: fixed;">
+                <thead>
+                <tr>
+                    <th class="th-inner mysort sorting">EPISODE ID</th>
+                    <th class="th-inner">TITLE</th>
+                    <th class="th-inner">DIRECTOR</th>
+                    <th class="th-inner">RELEASE DATE</th>
+                    <th class="th-inner">SEE CHARACTERS</th>
+                </tr>
+                </thead>
+            </table>
+    </div>
+</div>
+
+<script language="JavaScript" type="text/javascript">
+    $( document ).ready(function() {
+
+        var table = $('#tableFilms').DataTable({
+            select: true,
+            autoWidth: false,
+            lengthMenu: [10],
+            lengthChange: false,
+            responsive: true,
+            bPaginate:   false,
+            info:     false,
+            order: [[ 0, 'asc' ]],
+            "ajax" : {
+                "url" : "{{ path('filmsJSON') }}",
+                dataSrc : ''
+            },
+            "columns" : [
+                { "data" : "episode_id"},
+                { "data" : "title"},
+                { "data" : "director"},
+                { "data" : "release_date"},
+                {
+                    "data" : "episode_id",
+                    "render": function ( data, type, full, row ) {
+
+                        var url = "{{ path('filmInfo', {'episodeID': 'episodeIDToReplace'}) }}";
+
+                        url = url.replace("episodeIDToReplace", data);
+
+                        return '<a href="'+url+'" target="_blank"> + info</a>';
+                    }
+                }
+            ],
+        });
+
+        table.on( 'select', function ( e, dt, type, indexes ) {
+            if ( type === 'row' ) {
+                var data = table.rows( indexes ).data().pluck( 'id' );
+
+            }
+        } );
+
+    });
+
+
+
+
+</script>

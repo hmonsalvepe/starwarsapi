@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="swapicontainer" style="height: 100%;width: 100%;overflow-y: scroll;padding: 40px;">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="col-xs-12 col-md-10 col-md-offset-1" style="border:2px black solid;padding: 20px;border-radius: 5px;margin-top: 20px;">
+                    {% include 'swapi/filmSearch.html.twig' %}
+                </div>
+
+                <div class="col-xs-12 col-md-10 col-md-offset-1" style="border:2px black solid;padding: 20px;border-radius: 5px;margin-top: 20px;">
+                    {% include 'swapi/filmCharacters.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

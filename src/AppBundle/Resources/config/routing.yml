@@ -1,0 +1,7 @@
+filmsJSON:
+    path:      /filmsJSON
+    defaults: { _controller: AppBundle:FilmsController:filmsJSON }
+
+filmInfo:
+    path: /filmInfo/{episodeID}
+    defaults: {_controller: AppBundle:FilmsController:filmInfo, episodeID: 1}
