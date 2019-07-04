@@ -16,26 +16,6 @@ class DefaultController extends Controller
 
         $rootPath = $this->get('kernel')->getRootDir();
 
-
-
-        /*
-            Here I decide to download JSON files to have the app more complete
-            If I get the JSON data from the url I only get 10 characters
-            The way to get the info from a URL would be:
-
-            Next is to avoid the SSL check, without it system won't get the info:
-
-            $arrContextOptions=array(
-                "ssl"=>array(
-                    "verify_peer"=>false,
-                    "verify_peer_name"=>false,
-                ),
-            );
-
-            $json = file_get_contents("http://swapi.co/api/people", false, stream_context_create($arrContextOptions));
-            $obj = json_decode($json);
-
-        */
         $charactersFile = file_get_contents($rootPath.'/../web/swapiFiles/people.json');
         $characters = json_decode($charactersFile, true);
 
@@ -64,5 +44,23 @@ class DefaultController extends Controller
             array( 'charactersInFilms' => $charactersInFilms));
     }
 
+    /*
+           Here I decide to download JSON files to have the characters list complete
+           If I get the JSON data from the url I only get 10 characters
+           The way to get the info from a URL would be:
+
+           Next is to avoid the SSL check, without it system won't get the info:
+
+           $arrContextOptions=array(
+               "ssl"=>array(
+                   "verify_peer"=>false,
+                   "verify_peer_name"=>false,
+               ),
+           );
+
+           $json = file_get_contents("http://swapi.co/api/people", false, stream_context_create($arrContextOptions));
+           $obj = json_decode($json);
+
+       */
 
 }

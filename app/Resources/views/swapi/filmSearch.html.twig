@@ -1,13 +1,12 @@
 <div class="row">
     <div class="col-xs-12 col-md-12">
-            <table id="tableFilms"  class="table table-bordered" style="width: 100%; word-wrap:break-word; table-layout: fixed;">
+            <table id="tableFilms"  class="table table-bordered tableSW">
                 <thead>
                 <tr>
                     <th class="th-inner mysort sorting">EPISODE ID</th>
                     <th class="th-inner">TITLE</th>
                     <th class="th-inner">DIRECTOR</th>
-                    <th class="th-inner">RELEASE DATE</th>
-                    <th class="th-inner">SEE CHARACTERS</th>
+                    <th class="th-inner">ADDITIONAL INFO</th>
                 </tr>
                 </thead>
             </table>
@@ -34,41 +33,32 @@
                 { "data" : "episode_id"},
                 { "data" : "title"},
                 { "data" : "director"},
-                { "data" : "release_date"},
                 {
                     "data" : "episode_id",
                     "render": function ( data, type, full, row ) {
-
                         var url = "{{ path('filmInfo', {'episodeID': 'episodeIDToReplace'}) }}";
-
                         url = url.replace("episodeIDToReplace", data);
-
-                        return '<a href="'+url+'" target="_blank"> + info</a>';
+                        return '<a href="'+url+'" onclick="addThisToTheHistory('+data+');" target="_blank"> + info</a>';
                     }
                 }
             ],
         });
 
         table.on( 'select', function ( e, dt, type, indexes ) {
-
             if ( type === 'row' ) {
 
                 var node = dt.rows( indexes ).nodes()[0].textContent;
-
                 var episodeID = node.charAt(0);
 
-                    <!-- -->
-                    $( ".multiple-items" ).hide();
-                    $('#charatersOfTheEpisode'+episodeID).show();
-                    $('#charatersOfTheEpisode'+episodeID).slick({
-                        settings: "unslick",
-                        infinite: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    });
-                    <!-- -->
+                $( ".multiple-items" ).hide();
+                $('#charatersOfTheEpisode'+episodeID).show();
+                $('#charatersOfTheEpisode'+episodeID).slick({
+                    settings: "unslick",
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                });
             }
-
         } );
 
         table.on( 'deselect', function ( e, dt, type, indexes ) {
@@ -76,12 +66,12 @@
             var node = dt.rows( indexes ).nodes()[0].textContent;
             var episodeID = node.charAt(0);
             $('#charatersOfTheEpisode'+episodeID).slick('unslick');
-
         } );
-
     });
 
-
+    function addThisToTheHistory (episodeId) {
+        $("ul").append("<li>you visited the page of the episode id "+episodeId+"</li>");
+    }
 
 
 </script>

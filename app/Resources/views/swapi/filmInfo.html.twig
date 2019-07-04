@@ -1,35 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="swapicontainer" style="height: 100%;width: 100%;overflow-y: scroll;padding: 40px;">
+<div class="swapicontainer">
     <div class="row">
         <div class="col-xs-12 col-md-12">
-            <div class="col-xs-12 col-md-10 col-md-offset-1"
-                 style="border:2px black solid;padding: 20px;border-radius: 5px;margin-top: 20px;">
 
-                <div class="col-xs-12" style="margin-top: 5px;">
+            <div class="col-xs-12 col-md-10 col-md-offset-1  borderSW alignCenter">
+                <img style="height: 60px;" src="{{asset('bundles/app/images/logo_sw.png')}}"/>
+            </div>
+
+            <div class="col-xs-12 col-md-10 col-md-offset-1 padding20MarginTop20 normalBorder">
+
+                <div class="col-xs-12 marginTop5">
                     <div class="col-xs-6" ><h3>Title</h3></div>
-                    <div class="col-xs-6" style="border-left: 1px black solid;"><h3>{{ filmToShow.title }}</h3></div>
+                    <div class="col-xs-6 borderLeftSW"><h3>{{ filmToShow.title }}</h3></div>
                 </div>
 
-                <div class="col-xs-12" style="margin-top: 5px;">
+                <div class="col-xs-12 marginTop5">
                     <div class="col-xs-6" ><h3>Director</h3></div>
-                    <div class="col-xs-6" style="border-left: 1px black solid;"><h3>{{ filmToShow.director }}</h3></div>
+                    <div class="col-xs-6 borderLeftSW"><h3>{{ filmToShow.director }}</h3></div>
                 </div>
 
-                <div class="col-xs-12" style="margin-top: 5px;">
+                <div class="col-xs-12 marginTop5">
                     <div class="col-xs-6" ><h3>Producer</h3></div>
-                    <div class="col-xs-6" style="border-left: 1px black solid;"><h3>{{ filmToShow.producer }}</h3></div>
+                    <div class="col-xs-6 borderLeftSW"><h3>{{ filmToShow.producer }}</h3></div>
                 </div>
 
-                <div class="col-xs-12" style="margin-top: 5px;">
+                <div class="col-xs-12 marginTop5">
                     <div class="col-xs-6" ><h3>Release date</h3></div>
-                    <div class="col-xs-6" style="border-left: 1px black solid;"><h3>{{ filmToShow.release_date }}</h3></div>
+                    <div class="col-xs-6 borderLeftSW"><h3>{{ filmToShow.release_date }}</h3></div>
                 </div>
 
-                <div class="col-xs-12" style="margin-top: 5px;">
+                <div class="col-xs-12 marginTop5">
                     <div class="col-xs-6" ><h3>Opening crawl</h3></div>
-                    <div class="col-xs-6" style="border-left: 1px black solid;"><p>{{ filmToShow.opening_crawl }}</p></div>
+                    <div class="col-xs-6 borderLeftSW"><p>{{ filmToShow.opening_crawl }}</p></div>
                 </div>
 
             </div>

@@ -24,7 +24,6 @@ class FilmsController extends Controller
 
     /**
      * @Route("/filmInfo", name="filmInfo")
-     * @param Request $request
      */
     public function filmInfoAction(Request $request)
     {
@@ -34,6 +33,8 @@ class FilmsController extends Controller
         $str = file_get_contents($rootPath.'/../web/swapiFiles/films.json');
         $films = json_decode($str, true);
         $filmToShow = [];
+
+        $this->get('session')->getFlashBag()->add('notice', 'Page visited of the Episode ID: '.$episodeID);
 
         foreach ($films as $film) {
             if($film['episode_id'] == $episodeID){
