@@ -5,11 +5,15 @@
             <p class="fontSW bigSize">characters in this this film:</p>
         </div>
         {% for episodeID, charactersInFilm in charactersInFilms %}
+
             <div id='charatersOfTheEpisode{{ episodeID }}' class='multiple-items' style="display: none;">
+
                 {% for charsInFilm in charactersInFilm  %}
                     <h3 class="fontSW">{{ charsInFilm.name |lower  }}</h3>
                 {% endfor %}
+
             </div>
+
         {% endfor %}
 <!-- -->
     </div>
