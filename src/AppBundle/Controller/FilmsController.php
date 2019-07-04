@@ -15,6 +15,7 @@ class FilmsController extends Controller
     public function filmsJSONAction(Request $request)
     {
 
+        //get the films info for the search table
         $rootPath = $this->get('kernel')->getRootDir();
         $str = file_get_contents($rootPath.'/../web/swapiFiles/films.json');
         $films = json_decode($str, true);
@@ -27,6 +28,7 @@ class FilmsController extends Controller
      */
     public function filmInfoAction(Request $request)
     {
+        //we prepare the film info with the episodeId after user clicks
         $episodeID = $request->get('episodeID');
 
         $rootPath = $this->get('kernel')->getRootDir();
@@ -37,10 +39,9 @@ class FilmsController extends Controller
         $this->get('session')->getFlashBag()->add('notice', 'Page visited of the Episode ID: '.$episodeID);
 
         foreach ($films as $film) {
-            if($film['episode_id'] == $episodeID){
-                $filmToShow = $film;
-            }
+            if($film['episode_id'] == $episodeID){$filmToShow = $film;}
         }
+
         return $this->render('swapi/filmInfo.html.twig', array('filmToShow' => $filmToShow));
     }
 }
