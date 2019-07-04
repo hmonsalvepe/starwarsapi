@@ -1,13 +1,26 @@
 <div class="row">
-    <div class="col-xs-12 col-md-12">
+    <div class="col-xs-8 col-xs-offset-2">
+<!-- -->
+        {% for episodeID, charactersInFilm in charactersInFilms %}
+            
 
+
+            <div id='charatersOfTheEpisode{{ episodeID }}' class='multiple-items' style="display: none;">
+                {% for charsInFilm in charactersInFilm  %}
+                    <h3>{{ charsInFilm.name }}</h3>
+                {% endfor %}
+            </div>
+        
+        {% endfor %}
+        
+        
+    
+
+<!-- -->
     </div>
 </div>
 
 <script language="JavaScript" type="text/javascript">
-    $( document ).ready(function() {
 
-
-    });
 
 </script>

@@ -1,0 +1,19 @@
+.borderSW{
+  border:2px $yellow-star-wars solid;
+  border-radius: 5px;
+  background: black;
+  color: white;
+}
+
+.slick-slide > div {
+ text-align: center;
+  padding: 5px;
+}
+
+.slick-slide > div > h3 {
+  border: 1px $yellow-star-wars solid;
+  border-radius: 3px;
+  min-height: 80px;
+  padding: 5px;
+}
+

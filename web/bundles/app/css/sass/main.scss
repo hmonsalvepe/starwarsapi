@@ -2,8 +2,12 @@
 
 @import 'fontface';
 
-@include fontFace('Starjhol','font/starjhol/Starjhol');
+@include fontFace('Starjhol','fonts/starjhol/Starjhol');
 
 @import 'vendor/bootstrap-sass/bootstrap';
 @import 'vendor/jquery.dataTables';
 @import 'vendor/select.dataTables';
+@import 'vendor/slick';
+@import 'vendor/slick-theme';
+
+@import 'layout/general';

@@ -50,10 +50,33 @@
         });
 
         table.on( 'select', function ( e, dt, type, indexes ) {
-            if ( type === 'row' ) {
-                var data = table.rows( indexes ).data().pluck( 'id' );
 
+            if ( type === 'row' ) {
+
+                var node = dt.rows( indexes ).nodes()[0].textContent;
+
+                var episodeID = node.charAt(0);
+
+                    <!-- -->
+                    $( ".multiple-items" ).hide();
+                    $('#charatersOfTheEpisode'+episodeID).show();
+                    $('#charatersOfTheEpisode'+episodeID).slick({
+                        settings: "unslick",
+                        infinite: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    });
+                    <!-- -->
             }
+
+        } );
+
+        table.on( 'deselect', function ( e, dt, type, indexes ) {
+            $( ".multiple-items" ).hide();
+            var node = dt.rows( indexes ).nodes()[0].textContent;
+            var episodeID = node.charAt(0);
+            $('#charatersOfTheEpisode'+episodeID).slick('unslick');
+
         } );
 
     });
